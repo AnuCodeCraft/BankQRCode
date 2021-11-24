@@ -11,6 +11,10 @@ router.use(bodyParser.json());
 
 router.use( bodyParser.urlencoded({ extended: true }));
 
+router.get("/", async(req,res)=>{
+  res.send({ message: "Go to '/submit-bankdetails' to submit bankDetails"})
+})
+
 router.post("/submit-bankdetails", async (req,res)=>{
     const bankdetails = req.body;
     let hashcode = crypto.randomBytes(20).toString('hex');
